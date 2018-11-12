@@ -13,6 +13,7 @@ gem "sqlite3"
 gem "uglifier"
 
 gem "activeresource"
+gem "graphql"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
@@ -26,6 +27,7 @@ group :development do
   gem "rails-erd"
   gem "spring"
   gem "spring-commands-rspec"
+  gem "graphiql-rails"
 end
 
 group :development, :test do

@@ -116,6 +116,7 @@ GEM
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    graphql (1.8.11)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -314,6 +315,7 @@ DEPENDENCIES
   draper
   factory_bot_rails
   faker
+  graphql
   haml-rails
   jquery-rails
   letter_opener
