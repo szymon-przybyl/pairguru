@@ -36,6 +36,60 @@ We would like to share our movies via api. We want to return list of all out mov
 
 After a while developers started asking us to extend our results by adding genre details. They want genre id, name and number of movies in this genre to be returned along with the movies. We don't want to break api for existing users or make them to fetch more data.
 
+#### Comments
+Since we need to deal with dynamic scope of query I chosen GraphQL to implement this API. To test it locally you can go to
+`/graphiql` playground.
+
+Want all the movies? Execute:
+```graphql
+{
+  movies {
+    id,
+    title
+  }
+}
+```
+
+Just one movie:
+```graphql
+{
+  movie(id: 1) {
+    id,
+    title
+  }
+}
+```
+
+All the movies with genre details:
+```graphql
+{
+  movies {
+    id,
+    title,
+    genre {
+      id,
+      name,
+      moviesCount
+    }
+  }
+}
+```
+
+One movie with genre:
+```graphql
+{
+  movie(id: 1) {
+    id,
+    title,
+    genre {
+      id,
+      name,
+      moviesCount
+    }
+  }
+}
+```
+
 ### Task 3 - long running tasks
 We have two tasks that run too long and users leave our page frustrated: emailing details about movie (button in movie show) and emailing movies csv export (in navigation). We should make it that user doesn't have to wait for page load and still get emails.
 

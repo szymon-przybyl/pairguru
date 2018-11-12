@@ -116,6 +116,12 @@ GEM
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    goldiloader (3.0.2)
+      activerecord (>= 4.2, < 5.3)
+      activesupport (>= 4.2, < 5.3)
+    graphiql-rails (1.5.0)
+      railties
+      sprockets-rails
     graphql (1.8.11)
     haml (5.0.4)
       temple (>= 0.8.0)
@@ -315,6 +321,8 @@ DEPENDENCIES
   draper
   factory_bot_rails
   faker
+  goldiloader
+  graphiql-rails
   graphql
   haml-rails
   jquery-rails

@@ -13,7 +13,7 @@
 #
 
 class Movie < ApplicationRecord
-  belongs_to :genre
+  belongs_to :genre, counter_cache: true
 
   delegate :plot, :rating, :poster_url, to: :api, allow_nil: true
 
@@ -27,7 +27,7 @@ class Movie < ApplicationRecord
   rescue ActiveResource::ClientError
     # ClientError is inherited by all error statuses like 404, 500 etc.
     # In case we want to monitor issues with this API, we can
-    # add here reporting to our bug tracking tool.
+    #   add here reporting to our bug tracking tool.
     nil
   end
 end
