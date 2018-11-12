@@ -1,0 +1,6 @@
+production:
+  api_url: https://pairguru-api.herokuapp.com/api/v1
+development:
+  api_url: http://localhost:3001
+test:
+  api_url: http://pairguru-api

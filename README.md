@@ -24,6 +24,13 @@ Before pairing:
 ### Task 1 - consume api
 We would like to have more information about the movie in movie show and index page. The information should come from pairguru api (e.g. https://pairguru-api.herokuapp.com/api/v1/movies/Godfather). We should display movie poster (e.g. https://pairguru-api.herokuapp.com/godfather.jpg), rating and plot overview. We can't store this data in database.
 
+#### Comments
+I created separate repository to mock external API for local testing - just run it on port `3001`:
+https://github.com/szymon-przybyl/pairguru_api. It's returning the same data for every movie with ID in range 1-100.
+
+In `Movie#api` I'm using `id` as identifier of movies in external API - in case they should be different, we can use there
+attribute like `api_id`.
+
 ### Task 2 - build api
 We would like to share our movies via api. We want to return list of all out movies (id and title). Besides that we would like to for user to get specific movie by id.
 

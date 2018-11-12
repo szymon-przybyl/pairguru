@@ -14,4 +14,20 @@
 
 class Movie < ApplicationRecord
   belongs_to :genre
+
+  delegate :plot, :rating, :poster_url, to: :api, allow_nil: true
+
+  private
+ 
+  def api
+    return nil if id.nil?
+
+    @@api_cache ||= {}
+    @@api_cache[id] ||= PairguruApi::Movie.find(id)
+  rescue ActiveResource::ClientError
+    # ClientError is inherited by all error statuses like 404, 500 etc.
+    # In case we want to monitor issues with this API, we can
+    # add here reporting to our bug tracking tool.
+    nil
+  end
 end
