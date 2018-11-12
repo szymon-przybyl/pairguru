@@ -17,6 +17,8 @@ class Movie < ApplicationRecord
 
   delegate :plot, :rating, :poster_url, to: :api, allow_nil: true
 
+  validates_with TitleBracketsValidator
+
   private
  
   def api
