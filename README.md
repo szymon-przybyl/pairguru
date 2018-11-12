@@ -93,6 +93,15 @@ One movie with genre:
 ### Task 3 - long running tasks
 We have two tasks that run too long and users leave our page frustrated: emailing details about movie (button in movie show) and emailing movies csv export (in navigation). We should make it that user doesn't have to wait for page load and still get emails.
 
+#### Comments
+I used `sidekiq` for running background jobs. To test it locally you need to start it along with redis:
+```
+sidekiq
+redis-server
+```
+
+To monitor jobs you can go to `/sidekiq`.
+
 ### Task 4 - brackets validation
 Our moderators are adding parentheses and brackets to the titles.
 

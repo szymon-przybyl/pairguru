@@ -15,6 +15,7 @@ gem "uglifier"
 gem "activeresource"
 gem "graphql"
 gem "goldiloader" # prevent N+1 queries on loading GraphQL nested models
+gem "sidekiq"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
