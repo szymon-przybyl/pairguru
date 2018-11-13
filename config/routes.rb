@@ -21,5 +21,5 @@ Rails.application.routes.draw do
       get :export
     end
   end
-  resources :comments, only: %i[create destroy]
+  resources :comments, only: %i[index create destroy]
 end

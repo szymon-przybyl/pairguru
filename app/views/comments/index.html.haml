@@ -1,0 +1,4 @@
+%h1 Top commenters this week
+
+- @commenters.each do |user|
+  %p #{user.email} has commented #{pluralize(user.comments_count, 'movie')}

@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[create destroy]
+
+  def index
+    @commenters = User.top_commenters(1.week).limit(10)
+  end
 
   def create
     @comment = current_user.comments.new comment_params

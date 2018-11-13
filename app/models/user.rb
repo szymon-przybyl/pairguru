@@ -28,6 +28,15 @@ class User < ApplicationRecord
 
   validates :phone_number, format: { with: /\A[+]?\d+(?>[- .]\d+)*\z/, allow_nil: true }
 
+  scope :top_commenters, -> (period) do
+    starting_from = Time.now - period
+    select('users.*, COUNT(comments.id) as comments_count')
+      .joins(:comments)
+      .where('comments.created_at > ?', starting_from)
+      .group('users.id')
+      .order('comments_count DESC')
+  end
+
   def commented_movie?(movie)
     comments.where(comments: { movie_id: movie.id }).any?
   end
