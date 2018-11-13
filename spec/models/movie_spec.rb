@@ -1,6 +1,7 @@
 require "rails_helper"
 
 describe Movie do
+  # External values should be nil without ID
   it { expect(subject.plot).to be_nil }
   it { expect(subject.rating).to be_nil }
   it { expect(subject.poster_url).to be_nil }

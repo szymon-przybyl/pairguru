@@ -14,6 +14,7 @@
 
 class Movie < ApplicationRecord
   belongs_to :genre, counter_cache: true
+  has_many :comments
 
   delegate :plot, :rating, :poster_url, to: :api, allow_nil: true
 

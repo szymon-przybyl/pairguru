@@ -1,0 +1,8 @@
+.jumbotron.comment
+  %b
+    = comment.user.email
+  %p.content
+    = comment.content
+  - if current_user && current_user == comment.user
+    %p
+      = link_to 'Remove comment', comment, method: :delete

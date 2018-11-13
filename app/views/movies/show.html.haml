@@ -8,3 +8,20 @@
   = @movie.plot
 - if user_signed_in?
   %p= link_to 'Email me details about this movie', send_info_movie_path(@movie), class: 'btn btn-sm btn-default'
+
+%h2 Comments
+
+- if !user_signed_in?
+  %p You need to sign in to comment.
+- elsif current_user.commented_movie?(@movie)
+  %p You already commented this movie.
+- else
+  = form_for @new_comment, class: 'form' do |f|
+    .form-group
+      = f.hidden_field :movie_id
+    .form-group
+      = f.text_area :content, placeholder: 'Enter comment'
+    .form-group
+      = f.submit
+
+= render @movie.comments
